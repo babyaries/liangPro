@@ -112,10 +112,10 @@ GtkWidget* create_catalog(const CATALOG *catalog,const FILE_CATALOG *fileCatalog
    GtkCellRenderer *renderer = NULL;  //树渲染器
    GtkTreeIter iter1;//树迭代器
    GtkTreeIter iter2;
-   CATALOG *temp_catalog = NULL; //目录
+   const CATALOG *temp_catalog = NULL; //目录
    CATALOG *temp_catalog_2 = NULL;
-   GtkAdjustment *vAdjustment = NULL;
-   GtkAdjustment *hAdjustment = NULL;
+   GtkObject *vAdjustment = NULL;
+   GtkObject *hAdjustment = NULL;
    GtkWidget *scrollWindow = NULL;
    
    if(catalog == NULL){ 
