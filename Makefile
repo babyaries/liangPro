@@ -5,8 +5,7 @@ TARGET:=liang  #最终生成目标
 
 ALL: $(TARGET)
 
-$(TARGET): main.o ui.o signalAction.o files.o
-	$(CC) $(CFLAGS) $(LDFLAGS) $<
+$(TARGET): ui.o signalAction.o files.o
 
 clean:
 	rm -f *.o *.gch TAGS
