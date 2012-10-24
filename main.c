@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <gtk/gtk.h>
 #include "ui.h"
+#include "files.h"
 
 //用open打开的文件，重新写入时，如果字符串不及原来的长，原来比它还长的字符还保存有。所有有关文件的操作都有这个问题
 

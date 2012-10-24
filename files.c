@@ -6,9 +6,13 @@
  * 感谢：read_catalog_file（）方法，由C-aries提供修改意见。
  */
 
+#include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <errno.h>
 #include <time.h>
+#include <fcntl.h>
 #include "files.h"
 
 /**
@@ -382,7 +386,7 @@ FILE_CATALOG *parset_string_to_file_catalog(char *src){
  * @param saveSuccess 新增日志时返回的数据结构，修改时为NULL
  */
 char *convert_file_to_str_catalog(const FILE_CATALOG *srcCatalog,const char *title,const SAVE_LOG_FILE_SUCCESS_RETURN_TYPE *saveSuccess){
-   FILE_CATALOG *ff = srcCatalog;
+  const FILE_CATALOG *ff = srcCatalog;
    FILE_DETAIL_CATALOG *ss = NULL; //二级
    char *catalogFileStr = NULL;
    char *temp = NULL;

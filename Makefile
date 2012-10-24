@@ -1,23 +1,17 @@
 CC = gcc  #编译器
-CONFIG = `pkg-config --cflags --libs gtk+-2.0`  #相关配置
-ALL = main.o ui.o signalAction.o files.o #相关依懒
-OBJ = liang  #最终生成目标
+CFLAGS:=$(shell pkg-config --cflags gtk+-2.0) -g  #相关配置
+LDFLAGS:=$(shell pkg-config --libs gtk+-2.0)
+TARGET:=liang  #最终生成目标
 
-$(OBJ):$(ALL)
-	$(CC) -g -I. -L. $(ALL) -o $(OBJ) $(CONFIG)
-	
-main.o:main.c
-	$(CC) -g -c main.c $(CONFIG)
+ALL: $(TARGET)
 
-ui.o:ui.c ui.h
-	$(CC) -g -I. -c ui.h ui.c $(CONFIG)
+$(TARGET): main.o ui.o signalAction.o files.o
+	$(CC) $(CFLAGS) $(LDFLAGS) $<
 
-signalAction.o:signalAction.c signalAction.h
-	$(CC) -g -I. -c signalAction.c signalAction.h $(CONFIG)
-
-files.o:files.h files.c
-	$(CC) -g -I. -c files.c $(CONFIG)
-	
 clean:
-	rm *.o *.gch
+	rm -f *.o *.gch TAGS
 
+TAGS:
+	find -name "*.[ch]" | xargs ctags -e
+
+.PHONY: clean TAGS

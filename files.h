@@ -21,16 +21,16 @@
  
  //[{2012-01:[我的文章1:liangtxt1=我的文章1:liangtxt2]},{2012-01:[我的文章1:liangtxt1=我的文章1:liangtxt2]}]
  
- typedef struct{ //二级目录
+ typedef struct _FILE_DETAIL_CATALOG { //二级目录
    char *title; //标题
    char *file_name;//文件名
-   struct FILE_DETAIL_CATALOG *brother; //下一个兄弟结点，单向链表，NULL为结束
+   struct _FILE_DETAIL_CATALOG *brother; //下一个兄弟结点，单向链表，NULL为结束
  }FILE_DETAIL_CATALOG;
- 
- typedef struct{  //文件目录数据结构
+
+ typedef struct _FILE_CATALOG {  //文件目录数据结构
    char *catalog_name; //一级目录名
-   struct FILE_DETAIL_CATALOG *headChild; //第一个子结点
-   struct FILE_CATALOG *brother;//下一个兄弟结点，单向链表,NULL为结束
+   struct _FILE_DETAIL_CATALOG *headChild; //第一个子结点
+   struct _FILE_CATALOG *brother;//下一个兄弟结点，单向链表,NULL为结束
  }FILE_CATALOG;
  
  typedef struct{ //日志文件具体内容
