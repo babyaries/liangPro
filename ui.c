@@ -170,7 +170,7 @@ GtkWidget* create_catalog(const CATALOG *catalog,const FILE_CATALOG *fileCatalog
                     
    vAdjustment = gtk_adjustment_new(0,0,100,10,10,10);
    hAdjustment = gtk_adjustment_new(0,0,100,10,10,10);
-   scrollWindow = gtk_scrolled_window_new(hAdjustment,vAdjustment);
+   scrollWindow = gtk_scrolled_window_new(GTK_ADJUSTMENT (hAdjustment), GTK_ADJUSTMENT (vAdjustment));
    
    gtk_scrolled_window_add_with_viewport(scrollWindow,tree);          
    
