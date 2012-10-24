@@ -8,7 +8,7 @@ ALL: $(TARGET)
 $(TARGET): ui.o signalAction.o files.o
 
 clean:
-	rm -f *.o *.gch TAGS
+	rm -f *.o *.gch TAGS $(TARGET)
 
 TAGS:
 	find -name "*.[ch]" | xargs ctags -e
